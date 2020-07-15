@@ -1,0 +1,27 @@
+policy_module(persistent-evdev, 1.0.0)
+
+require {
+    type gconf_home_t;
+    type passwd_file_t;
+}
+
+type persistent_evdev_t;
+type persistent_evdev_exec_t;
+type persistent_evdev_conf_t;
+type persistent_evdev_cache_t;
+
+init_daemon_domain(persistent_evdev_t, persistent_evdev_exec_t)
+files_config_file(persistent_evdev_conf_t)
+files_type(persistent_evdev_cache_t)
+
+corecmd_exec_bin(persistent_evdev_t)
+libs_exec_ldconfig(persistent_evdev_t)
+dev_rw_input_dev(persistent_evdev_t)
+udev_search_pids(persistent_evdev_t)
+read_files_pattern(persistent_evdev_t, persistent_evdev_conf_t, persistent_evdev_conf_t)
+manage_files_pattern(persistent_evdev_t, persistent_evdev_cache_t, persistent_evdev_cache_t)
+
+allow persistent_evdev_t self:netlink_kobject_uevent_socket create_socket_perms;
+
+dontaudit persistent_evdev_t gconf_home_t:dir search;
+dontaudit persistent_evdev_t passwd_file_t:file read;

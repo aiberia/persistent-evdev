@@ -1,0 +1,10 @@
+{
+    "cache": "/var/cache/persistent-evdev",
+    "devices": {
+        "persist-mouse0": "/dev/input/by-id/usb-Logitech_G403_Prodigy_Gaming_Mouse_078738533531-event-if01",
+        "persist-mouse1": "/dev/input/by-id/usb-Logitech_G403_Prodigy_Gaming_Mouse_078738533531-event-mouse",
+        "persist-mouse2": "/dev/input/by-id/usb-Logitech_G403_Prodigy_Gaming_Mouse_078738533531-if01-event-kbd",
+        "persist-keyboard0": "/dev/input/by-id/usb-Microsoft_Natural®_Ergonomic_Keyboard_4000-event-kbd",
+        "persist-keyboard1": "/dev/input/by-id/usb-Microsoft_Natural®_Ergonomic_Keyboard_4000-if01-event-kbd"
+    }
+}

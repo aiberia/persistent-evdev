@@ -1,0 +1,3 @@
+/opt/persistent-evdev/bin/persistent-evdev.py       --  gen_context(system_u:object_r:persistent_evdev_exec_t,s0)
+/opt/persistent-evdev/etc/config.json               --  gen_context(system_u:object_r:persistent_evdev_conf_t,s0)
+/var/cache/persistent-evdev(/.*)?                       gen_context(system_u:object_r:persistent_evdev_cache_t,s0)

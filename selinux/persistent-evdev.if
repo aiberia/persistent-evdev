@@ -1,0 +1,40 @@
+
+## <summary>policy for persistent-evdev</summary>
+
+########################################
+## <summary>
+##	Execute persistent_evdev_exec_t in the persistent_evdev domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`persistent_evdev_domtrans',`
+	gen_require(`
+		type persistent_evdev_t, persistent_evdev_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, persistent_evdev_exec_t, persistent_evdev_t)
+')
+
+######################################
+## <summary>
+##	Execute persistent_evdev in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`persistent_evdev_exec',`
+	gen_require(`
+		type persistent_evdev_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, persistent_evdev_exec_t)
+')
