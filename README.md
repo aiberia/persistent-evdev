@@ -23,7 +23,6 @@ per your distro.
 
 ```shell
 git clone https://github.com/aiberia/persistent-evdev.git /opt/persistent-evdev
-mkdir /var/cache/persistent-evdev/
 ln -s /opt/persistent-evdev/systemd/persistent-evdev.service /etc/systemd/system/
 ln -s /opt/persistent-evdev/udev/60-persistent-input-uinput.rules /etc/udev/rules.d/
 ```
@@ -36,7 +35,7 @@ Edit the config file (`/opt/persistent-evdev/etc/config.json`) to point to your 
 
 ```json
 {
-    "cache": "/var/cache/persistent-evdev",
+    "cache": "/opt/persistent-evdev/cache",
     "devices": {
         "persist-mouse0": "/dev/input/by-id/usb-Logitech_G403_Prodigy_Gaming_Mouse_078738533531-event-if01",
         "persist-mouse1": "/dev/input/by-id/usb-Logitech_G403_Prodigy_Gaming_Mouse_078738533531-event-mouse",
