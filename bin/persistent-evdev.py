@@ -48,6 +48,8 @@ class Device:
 
 
     def make_capabilities_path(self):
+        if not os.path.exists(self.state.cache_path):
+            os.makedirs(self.state.cache_path)
         return os.path.join(self.state.cache_path, self.name + ".json")
 
 
