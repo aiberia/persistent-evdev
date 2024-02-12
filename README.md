@@ -67,6 +67,8 @@ lrwxrwxrwx 1 root root  10 Aug 17 02:23 uinput-persist-mouse1 -> ../event30
 lrwxrwxrwx 1 root root  10 Aug 17 02:23 uinput-persist-mouse2 -> ../event31
 ```
 
+If you encounter `OSError: [Errno 16] Device or resource busy`, ensure the devices are not already open with another instance of evdev, i.e a VM is not running and connected to them.
+
 # Example usage with Libvirt
 
 Add the virtual devices to `cgroup_device_acl` in `/etc/libvirt/qemu.conf` as such:
